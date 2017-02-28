@@ -2,16 +2,42 @@
 
 
 
-$(document).ready(
+$(document).ready(function() {
 //Code that executes when the document is ready
+
+var pageNumberCookie = parseInt(Cookies.get('pageNumber'));
+console.log(isNaN(pageNumberCookie));
+if (isNaN(pageNumberCookie)) {
+  console.log('Empty Cookie');
+  Cookies.set('pageNumber', 1);
+  pageNumberCookie = parseInt(Cookies.get('pageNumber'));
+}
+
+if (pageNumberCookie < 1) {
+  var newPageNumber = 1;
+}
+else {
+  var newPageNumber = pageNumberCookie + 1;
+}
+
+Cookies.set('pageNumber', newPageNumber);
+
+
+
+
+
+
+
+
+
+
     $(".next-button").on('click',
     function(){
-      $("#text-chapter1").fadeOut(1000);
-      $("#pic-chapter1").fadeOut(1000);
+      $("#chapter1").fadeOut(1000);
+      $("#chapter2").fadeIn(2000,function(){console.log(this)});
 //Fade out over 1 second
-      $("#text-chapter2").fadeIn(4000);
-      $("#pic-chapter2").fadeIn(4000);
+
 //Fade in over 4 seconds
     }
   )
-);
+});

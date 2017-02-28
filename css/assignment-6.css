@@ -77,10 +77,7 @@ html{
 
 }
 
-#text-chapter2{
-  display: none;
-}
-
-#pic-chapter2{
+#chapter2{
+  position:absolute;
   display: none;
 }
