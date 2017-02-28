@@ -31,16 +31,18 @@ html{
 .container {
   position: relative;
   overflow: auto;
-  display:table;;
-   top:40px
+  display:inline-block;
+   top:100px
 }
 
 
 .column-text {
-  display: table-cell;;
+  float:left;
+  position: relative;
   width: 30%;
+  height: 500px;
   font-family: 'Gloria Hallelujah', cursive;
-  font-size: 40px;
+  font-size: 35px;
   color:white;
   text-align: center;
   vertical-align: middle;
@@ -48,20 +50,23 @@ html{
 }
 
 .column-main {
-  display: table-cell;;
+  display: inline-block;
   position: relative;
   width: 50%;
+  height: 500px;
   color:white;
 }
 .next-button {
 
-  display: table-cell;
+
+  float:right;
   position: relative;
   width: 15%;
-    font-family: 'Gloria Hallelujah', cursive;
-      color:white;
-      font-size: 40px;
-      text-align: center;
+  height: 500px;
+  font-family: 'Gloria Hallelujah', cursive;
+  color:white;
+  font-size: 40px;
+  text-align: center;
   vertical-align:middle;
 }
 
@@ -70,4 +75,12 @@ html{
   width:100%;
   height: 100%;
 
+}
+
+#text-chapter2{
+  display: none;
+}
+
+#pic-chapter2{
+  display: none;
 }
