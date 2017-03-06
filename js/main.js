@@ -15,7 +15,9 @@ if (isNaN(pageNumberCookie)) {
 
  var chapters = [];
  chapters = $( ".container" );
-
+ var active = chapters.eq(pageNumberCookie);
+active.removeClass("hidden");
+ active.addClass("active");
 
 //todo: 2 container classess - active/non active. when you click the button changes classes accordingly. use cookie for the chapter
 
@@ -31,20 +33,39 @@ if (isNaN(pageNumberCookie)) {
       elem = chapters.eq(pageNumberCookie +1);
       console.log(elem);
 
-
+      elem.removeClass("hidden");
+      elem.addClass("active");
 
       elem.fadeIn(2000,function(){
         console.log(this)
-        elem.removeClass("hidden");
-        elem.addClass("active");
+
 
       });
+      if (pageNumberCookie<13){
+        pageNumberCookie = pageNumberCookie + 1;
+      }
 
-       pageNumberCookie = pageNumberCookie + 1;
-      console.log(pageNumberCookie)
+        console.log(pageNumberCookie)
       Cookies.set('pageNumber', pageNumberCookie);
 
 
     }
   )
+
+  $(".start-over").on('click',
+  function(){
+    var elem = chapters.eq(pageNumberCookie);
+    $(".active").fadeOut(1000);
+    elem.removeClass("active");
+    elem.addClass("hidden");
+    pageNumberCookie=0
+    elem = chapters.eq(pageNumberCookie);
+    elem.removeClass("hidden");
+    elem.addClass("active");
+    console.log(chapters);
+    Cookies.set('pageNumber', pageNumberCookie);
+    $(".active").fadeIn(1000);
+
+  }
+)
 });
